@@ -3,268 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>HR SISTEM | Gen Z Edition</title>
-<!-- Fonts & Icons -->
+<title>Employee OS | Gen Z Edition</title>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-    /* --- THEME VARIABLES SYSTEM --- */
-    :root {
-        /* Default: Cyber Neon (Dark) */
-        --bg-body: #0f172a;
-        --bg-card: rgba(30, 41, 59, 0.6);
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --primary: #6366f1;
-        --accent: #22d3ee;
-        --danger: #ef4444;
-        --success: #10b981;
-        --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-        --border: rgba(255, 255, 255, 0.1);
-        --nav-bg: rgba(15, 23, 42, 0.85);
-        --font-family: 'Prompt', sans-serif;
-        --radius: 20px;
-    }
+    /* --- THEME SYSTEM (14 THEMES) --- */
+    :root { --bg-body:#0f172a; --bg-card:rgba(30,41,59,0.6); --text-main:#f8fafc; --text-muted:#94a3b8; --primary:#6366f1; --accent:#22d3ee; --danger:#ef4444; --success:#10b981; --gradient:linear-gradient(135deg,#6366f1,#a855f7); --border:rgba(255,255,255,0.1); --nav-bg:rgba(15,23,42,0.85); --font-family:'Prompt',sans-serif; --radius:20px; }
+    body.theme-y2k { --bg-body:#fdf2f8; --bg-card:rgba(255,255,255,0.8); --text-main:#831843; --text-muted:#ec4899; --primary:#db2777; --accent:#fbbf24; --gradient:linear-gradient(135deg,#f472b6,#fbbf24); --border:2px solid #fbcfe8; --nav-bg:rgba(255,255,255,0.9); --radius:25px; }
+    body.theme-matrix { --bg-body:#000; --bg-card:rgba(0,20,0,0.7); --text-main:#4ade80; --text-muted:#166534; --primary:#22c55e; --accent:#86efac; --gradient:linear-gradient(135deg,#15803d,#000); --border:1px solid #166534; --nav-bg:rgba(0,0,0,0.95); --radius:4px; --font-family:'Courier New',monospace; }
+    body.theme-sunset { --bg-body:#fff7ed; --bg-card:rgba(255,255,255,0.7); --text-main:#431407; --text-muted:#ea580c; --primary:#f97316; --accent:#0ea5e9; --gradient:linear-gradient(135deg,#f97316,#ec4899); --border:1px solid #fed7aa; --nav-bg:rgba(255,247,237,0.9); --radius:30px; }
+    body.theme-lavender { --bg-body:#f5f3ff; --bg-card:rgba(255,255,255,0.7); --text-main:#4c1d95; --text-muted:#8b5cf6; --primary:#8b5cf6; --accent:#c4b5fd; --gradient:linear-gradient(135deg,#a78bfa,#ddd6fe); --border:1px solid #e9d5ff; --nav-bg:rgba(245,243,255,0.9); --radius:24px; }
+    body.theme-ocean { --bg-body:#082f49; --bg-card:rgba(12,74,110,0.6); --text-main:#e0f2fe; --text-muted:#7dd3fc; --primary:#0ea5e9; --accent:#38bdf8; --gradient:linear-gradient(135deg,#0284c7,#06b6d4); --border:1px solid rgba(56,189,248,0.2); --nav-bg:rgba(8,47,73,0.9); --radius:16px; }
+    body.theme-strawberry { --bg-body:#fff1f2; --bg-card:rgba(255,255,255,0.85); --text-main:#9f1239; --text-muted:#fb7185; --primary:#f43f5e; --accent:#fda4af; --gradient:linear-gradient(135deg,#fb7185,#fecdd3); --border:1px solid #ffe4e6; --nav-bg:rgba(255,241,242,0.95); --radius:30px; }
+    body.theme-gold { --bg-body:#0c0a09; --bg-card:rgba(28,25,23,0.8); --text-main:#fef3c7; --text-muted:#d97706; --primary:#f59e0b; --accent:#fbbf24; --gradient:linear-gradient(135deg,#b45309,#fcd34d); --border:1px solid rgba(251,191,36,0.2); --nav-bg:rgba(12,10,9,0.95); --radius:8px; }
+    body.theme-forest { --bg-body:#052e16; --bg-card:rgba(6,78,59,0.5); --text-main:#dcfce7; --text-muted:#86efac; --primary:#22c55e; --accent:#4ade80; --gradient:linear-gradient(135deg,#15803d,#166534); --border:1px solid rgba(74,222,128,0.15); --nav-bg:rgba(5,46,22,0.9); --radius:12px; }
+    body.theme-retro { --bg-body:#fefce8; --bg-card:#fff; --text-main:#1c1917; --text-muted:#ca8a04; --primary:#eab308; --accent:#facc15; --gradient:linear-gradient(135deg,#fde047,#fef08a); --border:2px solid #1c1917; --nav-bg:rgba(254,252,232,0.95); --radius:0; --font-family:'Courier New',monospace; }
+    body.theme-bubblegum { --bg-body:#ecfeff; --bg-card:rgba(255,255,255,0.8); --text-main:#155e75; --text-muted:#06b6d4; --primary:#06b6d4; --accent:#f472b6; --gradient:linear-gradient(135deg,#22d3ee,#f472b6); --border:1px solid #cffafe; --nav-bg:rgba(236,254,255,0.9); --radius:20px; }
+    body.theme-slate { --bg-body:#f8fafc; --bg-card:#fff; --text-main:#0f172a; --text-muted:#64748b; --primary:#475569; --accent:#0f172a; --gradient:linear-gradient(135deg,#334155,#64748b); --border:1px solid #e2e8f0; --nav-bg:rgba(248,250,252,0.95); --radius:12px; }
+    body.theme-blood { --bg-body:#1a0505; --bg-card:rgba(69,10,10,0.6); --text-main:#fecaca; --text-muted:#f87171; --primary:#dc2626; --accent:#ef4444; --gradient:linear-gradient(135deg,#991b1b,#7f1d1d); --border:1px solid rgba(248,113,113,0.2); --nav-bg:rgba(26,5,5,0.95); --radius:4px; }
+    body.theme-coffee { --bg-body:#fdf8f6; --bg-card:rgba(255,255,255,0.7); --text-main:#431407; --text-muted:#9a3412; --primary:#c2410c; --accent:#ea580c; --gradient:linear-gradient(135deg,#9a3412,#fed7aa); --border:1px solid #ffedd5; --nav-bg:rgba(253,248,246,0.95); --radius:16px; }
 
-    /* Theme: Y2K Pop */
-    body.theme-y2k {
-        --bg-body: #fdf2f8; --bg-card: rgba(255, 255, 255, 0.8);
-        --text-main: #831843; --text-muted: #ec4899;
-        --primary: #db2777; --accent: #fbbf24;
-        --gradient: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
-        --border: 2px solid #fbcfe8; --nav-bg: rgba(255, 255, 255, 0.9); --radius: 25px;
-    }
-    /* Theme: Matrix Code */
-    body.theme-matrix {
-        --bg-body: #000000; --bg-card: rgba(0, 20, 0, 0.7);
-        --text-main: #4ade80; --text-muted: #166534;
-        --primary: #22c55e; --accent: #86efac;
-        --gradient: linear-gradient(135deg, #15803d 0%, #000000 100%);
-        --border: 1px solid #166534; --nav-bg: rgba(0, 0, 0, 0.95); --radius: 4px;
-        --font-family: 'Courier New', monospace;
-    }
-    /* Theme: Sunset Vibe */
-    body.theme-sunset {
-        --bg-body: #fff7ed; --bg-card: rgba(255, 255, 255, 0.7);
-        --text-main: #431407; --text-muted: #ea580c;
-        --primary: #f97316; --accent: #0ea5e9;
-        --gradient: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
-        --border: 1px solid #fed7aa; --nav-bg: rgba(255, 247, 237, 0.9); --radius: 30px;
-    }
-    /* Theme: Lavender Haze */
-    body.theme-lavender {
-        --bg-body: #f5f3ff; --bg-card: rgba(255, 255, 255, 0.7);
-        --text-main: #4c1d95; --text-muted: #8b5cf6;
-        --primary: #8b5cf6; --accent: #c4b5fd;
-        --gradient: linear-gradient(135deg, #a78bfa 0%, #ddd6fe 100%);
-        --border: 1px solid #e9d5ff; --nav-bg: rgba(245, 243, 255, 0.9); --radius: 24px;
-    }
-    /* Theme: Ocean Breeze */
-    body.theme-ocean {
-        --bg-body: #082f49; --bg-card: rgba(12, 74, 110, 0.6);
-        --text-main: #e0f2fe; --text-muted: #7dd3fc;
-        --primary: #0ea5e9; --accent: #38bdf8;
-        --gradient: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-        --border: 1px solid rgba(56, 189, 248, 0.2); --nav-bg: rgba(8, 47, 73, 0.9); --radius: 16px;
-    }
-    /* Theme: Strawberry Milk */
-    body.theme-strawberry {
-        --bg-body: #fff1f2; --bg-card: rgba(255, 255, 255, 0.85);
-        --text-main: #9f1239; --text-muted: #fb7185;
-        --primary: #f43f5e; --accent: #fda4af;
-        --gradient: linear-gradient(135deg, #fb7185 0%, #fecdd3 100%);
-        --border: 1px solid #ffe4e6; --nav-bg: rgba(255, 241, 242, 0.95); --radius: 30px;
-    }
-    /* Theme: Midnight Gold */
-    body.theme-gold {
-        --bg-body: #0c0a09; --bg-card: rgba(28, 25, 23, 0.8);
-        --text-main: #fef3c7; --text-muted: #d97706;
-        --primary: #f59e0b; --accent: #fbbf24;
-        --gradient: linear-gradient(135deg, #b45309 0%, #fcd34d 100%);
-        --border: 1px solid rgba(251, 191, 36, 0.2); --nav-bg: rgba(12, 10, 9, 0.95); --radius: 8px;
-    }
-    /* Theme: Forest Camp */
-    body.theme-forest {
-        --bg-body: #052e16; --bg-card: rgba(6, 78, 59, 0.5);
-        --text-main: #dcfce7; --text-muted: #86efac;
-        --primary: #22c55e; --accent: #4ade80;
-        --gradient: linear-gradient(135deg, #15803d 0%, #166534 100%);
-        --border: 1px solid rgba(74, 222, 128, 0.15); --nav-bg: rgba(5, 46, 22, 0.9); --radius: 12px;
-    }
-    /* Theme: Retro Pop */
-    body.theme-retro {
-        --bg-body: #fefce8; --bg-card: #ffffff;
-        --text-main: #1c1917; --text-muted: #ca8a04;
-        --primary: #eab308; --accent: #facc15;
-        --gradient: linear-gradient(135deg, #fde047 0%, #fef08a 100%);
-        --border: 2px solid #1c1917; --nav-bg: rgba(254, 252, 232, 0.95); --radius: 0px;
-        --font-family: 'Courier New', monospace;
-    }
-    /* Theme: Bubblegum */
-    body.theme-bubblegum {
-        --bg-body: #ecfeff; --bg-card: rgba(255, 255, 255, 0.8);
-        --text-main: #155e75; --text-muted: #06b6d4;
-        --primary: #06b6d4; --accent: #f472b6;
-        --gradient: linear-gradient(135deg, #22d3ee 0%, #f472b6 100%);
-        --border: 1px solid #cffafe; --nav-bg: rgba(236, 254, 255, 0.9); --radius: 20px;
-    }
-    /* Theme: Slate Minimal */
-    body.theme-slate {
-        --bg-body: #f8fafc; --bg-card: #ffffff;
-        --text-main: #0f172a; --text-muted: #64748b;
-        --primary: #475569; --accent: #0f172a;
-        --gradient: linear-gradient(135deg, #334155 0%, #64748b 100%);
-        --border: 1px solid #e2e8f0; --nav-bg: rgba(248, 250, 252, 0.95); --radius: 12px;
-    }
-    /* Theme: Blood Moon */
-    body.theme-blood {
-        --bg-body: #1a0505; --bg-card: rgba(69, 10, 10, 0.6);
-        --text-main: #fecaca; --text-muted: #f87171;
-        --primary: #dc2626; --accent: #ef4444;
-        --gradient: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
-        --border: 1px solid rgba(248, 113, 113, 0.2); --nav-bg: rgba(26, 5, 5, 0.95); --radius: 4px;
-    }
-    /* Theme: Coffee Shop */
-    body.theme-coffee {
-        --bg-body: #fdf8f6; --bg-card: rgba(255, 255, 255, 0.7);
-        --text-main: #431407; --text-muted: #9a3412;
-        --primary: #c2410c; --accent: #ea580c;
-        --gradient: linear-gradient(135deg, #9a3412 0%, #fed7aa 100%);
-        --border: 1px solid #ffedd5; --nav-bg: rgba(253, 248, 246, 0.95); --radius: 16px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { font-family:var(--font-family); background:var(--bg-body); color:var(--text-main); min-height:100vh; padding-bottom:calc(80px + env(safe-area-inset-bottom)); transition:background .4s,color .4s; overflow-x:hidden; }
+    body::after { content:''; position:fixed; top:-20%; right:-20%; width:60vw; height:60vw; background:radial-gradient(circle,var(--primary),transparent 70%); opacity:.15; z-index:-1; pointer-events:none; filter:blur(60px); }
+    .container { max-width:800px; margin:0 auto; padding:20px; }
+    .header { display:flex; justify-content:center; align-items:center; margin-bottom:25px; }
+    .logo { font-size:1.5rem; font-weight:700; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
     
-    body {
-        font-family: var(--font-family);
-        background-color: var(--bg-body);
-        color: var(--text-main);
-        min-height: 100vh;
-        padding-bottom: calc(80px + env(safe-area-inset-bottom));
-        transition: background 0.4s ease, color 0.4s ease;
-        overflow-x: hidden;
-    }
-
-    body::after {
-        content: ''; position: fixed; top: -20%; right: -20%; width: 60vw; height: 60vw;
-        background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-        opacity: 0.15; z-index: -1; pointer-events: none; filter: blur(60px);
-        transition: background 0.4s;
-    }
-
-    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-
-    /* Header - Simplified without Tools Button */
-    .header { display: flex; justify-content: center; align-items: center; margin-bottom: 25px; position: relative;}
-    .logo { font-size: 1.5rem; font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
-
-    /* Views System */
-    .view-section { display: none; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    .view-section.active { display: block; }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Glass Card */
-    .glass-card {
-        background: var(--bg-card);
-        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 20px; margin-bottom: 15px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.05);
-        transition: border-radius 0.4s, background 0.4s;
-    }
-
-    /* Stats */
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-    .stat-item { text-align: center; padding: 15px 5px; }
-    .stat-num { font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 5px; }
-    .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-
-    /* Search */
-    .search-wrapper { position: relative; margin-bottom: 20px; }
-    .search-input {
-        width: 100%; padding: 16px 20px 16px 50px;
-        background: var(--bg-card); border: 1px solid var(--border);
-        border-radius: var(--radius); color: var(--text-main); font-family: inherit; font-size: 1rem;
-        outline: none; transition: 0.3s; backdrop-filter: blur(10px);
-    }
-    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(var(--accent), 0.1); }
-    .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-
-    /* Employee List */
-    .emp-list { display: flex; flex-direction: column; gap: 12px; }
-    .emp-card { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: transform 0.2s; }
-    .emp-card:active { transform: scale(0.98); }
-    .emp-img { width: 56px; height: 56px; border-radius: 16px; object-fit: cover; background: var(--border); flex-shrink: 0; }
-    .emp-info { flex: 1; min-width: 0; }
-    .emp-name { font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .emp-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
-    .badge { padding: 2px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; background: rgba(255,255,255,0.1); color: var(--text-main); }
-
-    /* Form */
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
-    .form-control {
-        width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border); border-radius: 14px;
-        color: var(--text-main); font-size: 1rem; outline: none; font-family: inherit;
-    }
-    .form-control:focus { border-color: var(--primary); }
+    .view-section { display:none; animation:slideUp .3s cubic-bezier(.16,1,.3,1); }
+    .view-section.active { display:block; }
+    @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     
-    .img-upload-area {
-        border: 2px dashed var(--border); border-radius: var(--radius); padding: 30px;
-        text-align: center; cursor: pointer; transition: 0.3s; color: var(--text-muted);
-    }
-    .img-upload-area:hover { border-color: var(--primary); background: rgba(255,255,255,0.02); }
+    .glass-card { background:var(--bg-card); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid var(--border); border-radius:var(--radius); padding:20px; margin-bottom:15px; box-shadow:0 4px 24px rgba(0,0,0,.05); }
+    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+    .stat-item { text-align:center; padding:15px 5px; }
+    .stat-num { font-size:1.8rem; font-weight:700; color:var(--accent); line-height:1; margin-bottom:5px; }
+    .stat-label { font-size:.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.5px; }
     
-    .btn-primary {
-        width: 100%; padding: 16px; border: none; border-radius: 16px;
-        background: var(--gradient); color: white; font-size: 1rem; font-weight: 600;
-        cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s;
-    }
-    .btn-primary:active { transform: scale(0.98); }
-
-    /* Theme Picker Styles */
-    .theme-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .theme-option {
-        position: relative; cursor: pointer; border-radius: 20px; overflow: hidden;
-        border: 2px solid transparent; transition: 0.3s; aspect-ratio: 1/1;
-    }
-    .theme-option.active { border-color: var(--text-main); transform: scale(1.02); }
-    .theme-preview { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-weight: bold; font-size: 0.8rem; }
+    .search-wrapper { position:relative; margin-bottom:20px; }
+    .search-input { width:100%; padding:16px 20px 16px 50px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); color:var(--text-main); font-family:inherit; font-size:1rem; outline:none; backdrop-filter:blur(10px); }
+    .search-input:focus { border-color:var(--accent); box-shadow:0 0 0 4px rgba(var(--accent),.1); }
+    .search-icon { position:absolute; left:18px; top:50%; transform:translateY(-50%); color:var(--text-muted); }
     
-    /* Bottom Nav */
-    .bottom-nav {
-        position: fixed; bottom: 0; left: 0; right: 0; height: 80px;
-        background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border); display: flex; justify-content: space-around; align-items: center;
-        z-index: 1000; padding-bottom: env(safe-area-inset-bottom); transition: background 0.4s;
-    }
-    .nav-item {
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        color: var(--text-muted); font-size: 0.7rem; gap: 6px; cursor: pointer; width: 60px;
-        transition: 0.3s; opacity: 0.7;
-    }
-    .nav-item i { font-size: 1.3rem; transition: 0.3s; }
-    .nav-item.active { color: var(--accent); opacity: 1; }
-    .nav-item.active i { transform: translateY(-4px); text-shadow: 0 0 12px var(--accent); }
-
-    /* Modal */
-    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px); }
-    .modal.open { display: flex; }
-    .modal-content { width: 100%; max-width: 400px; background: var(--bg-body); border: 1px solid var(--border); border-radius: 30px; padding: 30px; position: relative; color: var(--text-main); }
-    .close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-
+    .emp-list { display:flex; flex-direction:column; gap:12px; }
+    .emp-card { display:flex; align-items:center; gap:15px; cursor:pointer; transition:transform .2s; }
+    .emp-card:active { transform:scale(.98); }
+    .emp-img { width:56px; height:56px; border-radius:16px; object-fit:cover; background:var(--border); flex-shrink:0; }
+    .emp-info { flex:1; min-width:0; }
+    .emp-name { font-weight:600; font-size:1.05rem; margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .emp-meta { font-size:.8rem; color:var(--text-muted); display:flex; align-items:center; gap:8px; }
+    .badge { padding:2px 8px; border-radius:6px; font-size:.7rem; font-weight:600; background:rgba(255,255,255,.1); color:var(--text-main); }
+    
+    .form-group { margin-bottom:18px; }
+    .form-label { display:block; margin-bottom:8px; color:var(--text-muted); font-size:.85rem; font-weight:500; }
+    .form-control { width:100%; padding:14px 16px; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:14px; color:var(--text-main); font-size:1rem; outline:none; font-family:inherit; }
+    .form-control:focus { border-color:var(--primary); }
+    .img-upload-area { border:2px dashed var(--border); border-radius:var(--radius); padding:30px; text-align:center; cursor:pointer; color:var(--text-muted); }
+    .btn-primary { width:100%; padding:16px; border:none; border-radius:16px; background:var(--gradient); color:white; font-size:1rem; font-weight:600; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,.2); }
+    
+    .theme-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .theme-option { position:relative; cursor:pointer; border-radius:20px; overflow:hidden; border:2px solid transparent; aspect-ratio:1/1; }
+    .theme-option.active { border-color:var(--text-main); transform:scale(1.02); }
+    .theme-preview { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:bold; font-size:.8rem; }
+    
+    .bottom-nav { position:fixed; bottom:0; left:0; right:0; height:80px; background:var(--nav-bg); backdrop-filter:blur(20px); border-top:1px solid var(--border); display:flex; justify-content:space-around; align-items:center; z-index:1000; padding-bottom:env(safe-area-inset-bottom); }
+    .nav-item { display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-muted); font-size:.7rem; gap:6px; cursor:pointer; width:60px; opacity:.7; }
+    .nav-item i { font-size:1.3rem; }
+    .nav-item.active { color:var(--accent); opacity:1; }
+    .nav-item.active i { transform:translateY(-4px); text-shadow:0 0 12px var(--accent); }
+    
+    .modal { position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:2000; display:none; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(8px); }
+    .modal.open { display:flex; }
+    .modal-content { width:100%; max-width:400px; background:var(--bg-body); border:1px solid var(--border); border-radius:30px; padding:30px; position:relative; color:var(--text-main); }
+    .close-modal { position:absolute; top:20px; right:20px; background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer; }
 </style>
 </head>
 <body class="theme-cyber">
 
 <div class="container">
-    <!-- Header -->
-    <div class="header">
-        <div class="logo"><i class="fa-solid fa-users-viewfinder"></i> HR-NEW GEN</div>
-    </div>
+    <div class="header"><div class="logo"><i class="fa-solid fa-users-viewfinder"></i> Emp.OS</div></div>
 
     <!-- VIEW 1: HOME -->
     <div id="view-home" class="view-section active">
@@ -273,15 +91,11 @@
             <div class="stat-item"><div class="stat-num" id="totalDept">0</div><div class="stat-label">แผนก</div></div>
             <div class="stat-item"><div class="stat-num" id="totalPos">0</div><div class="stat-label">ตำแหน่ง</div></div>
         </div>
-
         <div class="search-wrapper">
             <i class="fa-solid fa-search search-icon"></i>
             <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาใครดี?..." oninput="renderList()">
         </div>
-
-        <div id="employeeList" class="emp-list">
-            <div class="text-center" style="padding:40px; color:var(--text-muted)">กำลังโหลด...</div>
-        </div>
+        <div id="employeeList" class="emp-list"></div>
     </div>
 
     <!-- VIEW 2: ADD / EDIT -->
@@ -293,11 +107,10 @@
                     <label class="form-label">รูปโปรไฟล์</label>
                     <div class="img-upload-area" onclick="document.getElementById('imgInp').click()">
                         <img id="imgPreview" src="" style="max-width:100px; border-radius:50%; display:none; margin:0 auto;">
-                        <div id="uploadPlaceholder"><i class="fa-solid fa-camera fa-2x"></i><br><span style="font-size:0.9rem">แตะเพื่ออัปโหลด</span></div>
+                        <div id="uploadPlaceholder"><i class="fa-solid fa-camera fa-2x"></i><br><span style="font-size:.9rem">แตะเพื่ออัปโหลด</span></div>
                     </div>
                     <input type="file" id="imgInp" accept="image/*" hidden onchange="previewImage(this)">
                 </div>
-
                 <div class="form-group"><label class="form-label">รหัสพนักงาน</label><input type="text" id="f_id" class="form-control" required></div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
                     <div class="form-group"><label class="form-label">ชื่อ</label><input type="text" id="f_fname" class="form-control" required></div>
@@ -313,7 +126,6 @@
                 <div class="form-group"><label class="form-label">ตำแหน่ง</label><input type="text" id="f_pos" class="form-control" required></div>
                 <div class="form-group"><label class="form-label">เงินเดือน</label><input type="number" id="f_sal" class="form-control" required></div>
                 <div class="form-group"><label class="form-label">เบอร์โทร</label><input type="tel" id="f_phone" class="form-control" required></div>
-                
                 <button type="submit" class="btn-primary" id="submitBtn">บันทึกเลย 🚀</button>
                 <button type="button" id="cancelEditBtn" class="btn-primary" style="background:#334155; margin-top:10px; display:none;" onclick="resetForm()">ยกเลิก</button>
             </form>
@@ -324,58 +136,45 @@
     <div id="view-themes" class="view-section">
         <div class="glass-card">
             <h2 style="margin-bottom:5px;"><i class="fa-solid fa-palette"></i> Theme Station</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px; font-size:0.9rem;">เลือก Vibe ที่ใช่ แล้วเปลี่ยนอารมณ์แอปฯ ทันที ✨</p>
-            
+            <p style="color:var(--text-muted); margin-bottom:20px; font-size:.9rem;">เลือก Vibe ที่ใช่ แล้วเปลี่ยนอารมณ์แอปฯ ทันที ✨</p>
             <div class="theme-grid">
-                <div class="theme-option active" onclick="setTheme('cyber', this)"><div class="theme-preview" style="background:#0f172a; color:#22d3ee; border:1px solid rgba(255,255,255,0.1);"><i class="fa-solid fa-bolt"></i><span>CYBER</span></div></div>
-                <div class="theme-option" onclick="setTheme('y2k', this)"><div class="theme-preview" style="background:#fdf2f8; color:#db2777; border:1px solid #fbcfe8;"><i class="fa-solid fa-star"></i><span>Y2K POP</span></div></div>
-                <div class="theme-option" onclick="setTheme('matrix', this)"><div class="theme-preview" style="background:#000; color:#4ade80; font-family:monospace; border:1px solid #166534;"><i class="fa-solid fa-terminal"></i><span>MATRIX</span></div></div>
-                <div class="theme-option" onclick="setTheme('sunset', this)"><div class="theme-preview" style="background:#fff7ed; color:#f97316; border:1px solid #fed7aa;"><i class="fa-solid fa-sun"></i><span>SUNSET</span></div></div>
-                <div class="theme-option" onclick="setTheme('lavender', this)"><div class="theme-preview" style="background:#f5f3ff; color:#8b5cf6; border:1px solid #e9d5ff;"><i class="fa-solid fa-cloud"></i><span>LAVENDER</span></div></div>
-                <div class="theme-option" onclick="setTheme('ocean', this)"><div class="theme-preview" style="background:#082f49; color:#38bdf8; border:1px solid rgba(56,189,248,0.3);"><i class="fa-solid fa-water"></i><span>OCEAN</span></div></div>
-                <div class="theme-option" onclick="setTheme('strawberry', this)"><div class="theme-preview" style="background:#fff1f2; color:#f43f5e; border:1px solid #ffe4e6;"><i class="fa-solid fa-heart"></i><span>BERRY MILK</span></div></div>
-                <div class="theme-option" onclick="setTheme('gold', this)"><div class="theme-preview" style="background:#0c0a09; color:#fbbf24; border:1px solid rgba(251,191,36,0.3);"><i class="fa-solid fa-gem"></i><span>GOLD LUXE</span></div></div>
-                <div class="theme-option" onclick="setTheme('forest', this)"><div class="theme-preview" style="background:#052e16; color:#4ade80; border:1px solid rgba(74,222,128,0.2);"><i class="fa-solid fa-tree"></i><span>FOREST</span></div></div>
-                <div class="theme-option" onclick="setTheme('retro', this)"><div class="theme-preview" style="background:#fefce8; color:#1c1917; border:2px solid #1c1917; font-family:monospace;"><i class="fa-solid fa-gamepad"></i><span>RETRO 90s</span></div></div>
-                <div class="theme-option" onclick="setTheme('bubblegum', this)"><div class="theme-preview" style="background:#ecfeff; color:#06b6d4; border:1px solid #cffafe;"><i class="fa-solid fa-candy-cane"></i><span>BUBBLEGUM</span></div></div>
-                <div class="theme-option" onclick="setTheme('slate', this)"><div class="theme-preview" style="background:#f8fafc; color:#475569; border:1px solid #e2e8f0;"><i class="fa-solid fa-layer-group"></i><span>MINIMAL</span></div></div>
-                <div class="theme-option" onclick="setTheme('blood', this)"><div class="theme-preview" style="background:#1a0505; color:#ef4444; border:1px solid rgba(248,113,113,0.3);"><i class="fa-solid fa-skull"></i><span>BLOOD MOON</span></div></div>
-                <div class="theme-option" onclick="setTheme('coffee', this)"><div class="theme-preview" style="background:#fdf8f6; color:#c2410c; border:1px solid #ffedd5;"><i class="fa-solid fa-mug-hot"></i><span>COFFEE</span></div></div>
+                <div class="theme-option active" onclick="setTheme('cyber',this)"><div class="theme-preview" style="background:#0f172a;color:#22d3ee;border:1px solid rgba(255,255,255,.1)"><i class="fa-solid fa-bolt"></i><span>CYBER</span></div></div>
+                <div class="theme-option" onclick="setTheme('y2k',this)"><div class="theme-preview" style="background:#fdf2f8;color:#db2777;border:1px solid #fbcfe8"><i class="fa-solid fa-star"></i><span>Y2K POP</span></div></div>
+                <div class="theme-option" onclick="setTheme('matrix',this)"><div class="theme-preview" style="background:#000;color:#4ade80;font-family:monospace;border:1px solid #166534"><i class="fa-solid fa-terminal"></i><span>MATRIX</span></div></div>
+                <div class="theme-option" onclick="setTheme('sunset',this)"><div class="theme-preview" style="background:#fff7ed;color:#f97316;border:1px solid #fed7aa"><i class="fa-solid fa-sun"></i><span>SUNSET</span></div></div>
+                <div class="theme-option" onclick="setTheme('lavender',this)"><div class="theme-preview" style="background:#f5f3ff;color:#8b5cf6;border:1px solid #e9d5ff"><i class="fa-solid fa-cloud"></i><span>LAVENDER</span></div></div>
+                <div class="theme-option" onclick="setTheme('ocean',this)"><div class="theme-preview" style="background:#082f49;color:#38bdf8;border:1px solid rgba(56,189,248,.3)"><i class="fa-solid fa-water"></i><span>OCEAN</span></div></div>
+                <div class="theme-option" onclick="setTheme('strawberry',this)"><div class="theme-preview" style="background:#fff1f2;color:#f43f5e;border:1px solid #ffe4e6"><i class="fa-solid fa-heart"></i><span>BERRY MILK</span></div></div>
+                <div class="theme-option" onclick="setTheme('gold',this)"><div class="theme-preview" style="background:#0c0a09;color:#fbbf24;border:1px solid rgba(251,191,36,.3)"><i class="fa-solid fa-gem"></i><span>GOLD LUXE</span></div></div>
+                <div class="theme-option" onclick="setTheme('forest',this)"><div class="theme-preview" style="background:#052e16;color:#4ade80;border:1px solid rgba(74,222,128,.2)"><i class="fa-solid fa-tree"></i><span>FOREST</span></div></div>
+                <div class="theme-option" onclick="setTheme('retro',this)"><div class="theme-preview" style="background:#fefce8;color:#1c1917;border:2px solid #1c1917;font-family:monospace"><i class="fa-solid fa-gamepad"></i><span>RETRO 90s</span></div></div>
+                <div class="theme-option" onclick="setTheme('bubblegum',this)"><div class="theme-preview" style="background:#ecfeff;color:#06b6d4;border:1px solid #cffafe"><i class="fa-solid fa-candy-cane"></i><span>BUBBLEGUM</span></div></div>
+                <div class="theme-option" onclick="setTheme('slate',this)"><div class="theme-preview" style="background:#f8fafc;color:#475569;border:1px solid #e2e8f0"><i class="fa-solid fa-layer-group"></i><span>MINIMAL</span></div></div>
+                <div class="theme-option" onclick="setTheme('blood',this)"><div class="theme-preview" style="background:#1a0505;color:#ef4444;border:1px solid rgba(248,113,113,.3)"><i class="fa-solid fa-skull"></i><span>BLOOD MOON</span></div></div>
+                <div class="theme-option" onclick="setTheme('coffee',this)"><div class="theme-preview" style="background:#fdf8f6;color:#c2410c;border:1px solid #ffedd5"><i class="fa-solid fa-mug-hot"></i><span>COFFEE</span></div></div>
             </div>
-        </div>
-        
-        <div class="glass-card" style="text-align:center; margin-top:15px; padding:15px;">
-            <p style="font-size:0.75rem; color:var(--text-muted);">Emp.OS v4.0 • 14 Vibes Available<br>Designed for Gen Z Workflow</p>
         </div>
     </div>
 </div>
 
-<!-- BOTTOM NAVIGATION -->
 <nav class="bottom-nav">
-    <div class="nav-item active" onclick="switchView('home', this)">
-        <i class="fa-solid fa-house"></i> <span>Home</span>
-    </div>
-    <div class="nav-item" onclick="switchView('add', this)">
-        <i class="fa-solid fa-circle-plus"></i> <span>Add</span>
-    </div>
-    <div class="nav-item" onclick="switchView('themes', this)">
-        <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Themes</span>
-    </div>
+    <div class="nav-item active" onclick="switchView('home',this)"><i class="fa-solid fa-house"></i><span>Home</span></div>
+    <div class="nav-item" onclick="switchView('add',this)"><i class="fa-solid fa-circle-plus"></i><span>Add</span></div>
+    <div class="nav-item" onclick="switchView('themes',this)"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Themes</span></div>
 </nav>
 
-<!-- DETAIL MODAL -->
-<div id="detailModal" class="modal" onclick="if(event.target === this) closeModal()">
+<div id="detailModal" class="modal" onclick="if(event.target===this)closeModal()">
     <div class="modal-content">
         <button class="close-modal" onclick="closeModal()">&times;</button>
         <div id="modalBody" class="text-center"></div>
-        <div style="display:flex; gap:10px; margin-top:25px;">
+        <div style="display:flex;gap:10px;margin-top:25px;">
             <button class="btn-primary" style="background:var(--success)" onclick="editCurrentEmp()">แก้ไข ✏️</button>
             <button class="btn-primary" style="background:var(--danger)" onclick="deleteCurrentEmp()">ลบ 🗑️</button>
         </div>
     </div>
 </div>
 
-<!-- FIREBASE SCRIPT -->
+<!-- FIXED FIREBASE SCRIPT -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, onSnapshot, doc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -390,189 +189,209 @@
         measurementId: "G-2Z0QW8XV73"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    let employees = [];
-    let currentImgBase64 = null;
-    let editingId = null;
-    let selectedEmpId = null;
+    try {
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        let employees = [];
+        let currentImgBase64 = null;
+        let editingId = null;
+        let selectedEmpId = null;
 
-    // Load Saved Theme
-    const savedTheme = localStorage.getItem('empTheme') || 'cyber';
-    document.body.className = `theme-${savedTheme}`;
-    updateThemeSelection(savedTheme);
+        // Load Theme
+        const savedTheme = localStorage.getItem('empTheme') || 'cyber';
+        document.body.className = `theme-${savedTheme}`;
+        updateThemeSelection(savedTheme);
 
-    onSnapshot(collection(db, "employees"), (snap) => {
-        employees = snap.docs.map(d => ({id: d.id, ...d.data()}));
-        updateStats();
-        renderList();
-    });
-
-    window.renderList = () => {
-        const term = document.getElementById('searchInput').value.toLowerCase();
-        const list = document.getElementById('employeeList');
-        list.innerHTML = '';
-        
-        const filtered = employees.filter(e => 
-            e.firstName?.toLowerCase().includes(term) || 
-            e.lastName?.toLowerCase().includes(term) ||
-            e.position?.toLowerCase().includes(term)
+        // Realtime Listener with Error Handling
+        onSnapshot(collection(db, "employees"), 
+            (snap) => {
+                employees = snap.docs.map(d => ({ docId: d.id, ...d.data() }));
+                updateStats();
+                renderList();
+            },
+            (err) => console.error("Firebase Error:", err)
         );
 
-        if(filtered.length === 0) {
-            list.innerHTML = '<div class="text-center" style="padding:30px; color:var(--text-muted)">ไม่มีใครอยู่เลย 👻</div>';
-            return;
-        }
+        // Expose functions to Global Window for HTML onclick
+        window.renderList = () => {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            const list = document.getElementById('employeeList');
+            list.innerHTML = '';
+            
+            const filtered = employees.filter(e => 
+                e.firstName?.toLowerCase().includes(term) || 
+                e.lastName?.toLowerCase().includes(term) ||
+                e.position?.toLowerCase().includes(term) ||
+                e.employeeId?.toLowerCase().includes(term)
+            );
 
-        filtered.forEach(e => {
-            const div = document.createElement('div');
-            div.className = 'glass-card emp-card';
-            div.onclick = () => openDetail(e.employeeId);
-            div.innerHTML = `
-                <img src="${e.imageData || 'https://via.placeholder.com/60'}" class="emp-img">
-                <div class="emp-info">
-                    <div class="emp-name">${e.firstName} ${e.lastName}</div>
-                    <div class="emp-meta"><span class="badge">${e.department}</span> ${e.position}</div>
-                </div>
-                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:0.8rem;"></i>
-            `;
-            list.appendChild(div);
-        });
-    };
+            if(filtered.length === 0) {
+                list.innerHTML = '<div class="text-center" style="padding:30px;color:var(--text-muted)">ไม่มีใครอยู่เลย 👻</div>';
+                return;
+            }
 
-    window.updateStats = () => {
-        document.getElementById('totalEmp').innerText = employees.length;
-        document.getElementById('totalDept').innerText = new Set(employees.map(e=>e.department)).size;
-        document.getElementById('totalPos').innerText = new Set(employees.map(e=>e.position)).size;
-    };
-
-    document.getElementById('empForm').onsubmit = async (ev) => {
-        ev.preventDefault();
-        const id = document.getElementById('f_id').value.trim();
-        if(!id) return alert('ขอรหัสพนักงานด้วยครับ');
-
-        const data = {
-            employeeId: id,
-            firstName: document.getElementById('f_fname').value,
-            lastName: document.getElementById('f_lname').value,
-            department: document.getElementById('f_dept').value,
-            position: document.getElementById('f_pos').value,
-            salary: document.getElementById('f_sal').value,
-            phone: document.getElementById('f_phone').value,
-            imageData: currentImgBase64,
-            updatedAt: new Date().toISOString()
+            filtered.forEach(e => {
+                // Use employeeId as primary key, fallback to docId
+                const uniqueKey = encodeURIComponent(e.employeeId || e.docId);
+                const div = document.createElement('div');
+                div.className = 'glass-card emp-card';
+                div.onclick = () => openDetail(uniqueKey);
+                div.innerHTML = `
+                    <img src="${e.imageData || 'https://via.placeholder.com/60'}" class="emp-img">
+                    <div class="emp-info">
+                        <div class="emp-name">${e.firstName} ${e.lastName}</div>
+                        <div class="emp-meta"><span class="badge">${e.department}</span> ${e.position}</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" style="color:var(--text-muted);font-size:.8rem;"></i>
+                `;
+                list.appendChild(div);
+            });
         };
-        if(!editingId) data.createdAt = new Date().toISOString();
 
-        await setDoc(doc(db, "employees", id), data, {merge:true});
-        alert(editingId ? 'อัปเดตแล้ว ✅' : 'เพิ่มสำเร็จ 🎉');
-        resetForm();
-        switchView('home', document.querySelector('.nav-item'));
-    };
+        window.updateStats = () => {
+            document.getElementById('totalEmp').innerText = employees.length;
+            document.getElementById('totalDept').innerText = new Set(employees.map(e=>e.department)).size;
+            document.getElementById('totalPos').innerText = new Set(employees.map(e=>e.position)).size;
+        };
 
-    window.previewImage = (input) => {
-        if(input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                currentImgBase64 = e.target.result;
-                document.getElementById('imgPreview').src = currentImgBase64;
+        document.getElementById('empForm').onsubmit = async (ev) => {
+            ev.preventDefault();
+            const id = document.getElementById('f_id').value.trim();
+            if(!id) return alert('ขอรหัสพนักงานด้วยครับ');
+
+            const data = {
+                employeeId: id,
+                firstName: document.getElementById('f_fname').value,
+                lastName: document.getElementById('f_lname').value,
+                department: document.getElementById('f_dept').value,
+                position: document.getElementById('f_pos').value,
+                salary: document.getElementById('f_sal').value,
+                phone: document.getElementById('f_phone').value,
+                imageData: currentImgBase64,
+                updatedAt: new Date().toISOString()
+            };
+            if(!editingId) data.createdAt = new Date().toISOString();
+
+            try {
+                await setDoc(doc(db, "employees", id), data, {merge:true});
+                alert(editingId ? 'อัปเดตแล้ว ✅' : 'เพิ่มสำเร็จ 🎉');
+                resetForm();
+                switchView('home', document.querySelector('.nav-item'));
+            } catch(err) {
+                alert('บันทึกไม่สำเร็จ: ' + err.message);
+            }
+        };
+
+        window.previewImage = (input) => {
+            if(input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    currentImgBase64 = e.target.result;
+                    document.getElementById('imgPreview').src = currentImgBase64;
+                    document.getElementById('imgPreview').style.display = 'block';
+                    document.getElementById('uploadPlaceholder').style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+
+        window.resetForm = () => {
+            document.getElementById('empForm').reset();
+            currentImgBase64 = null;
+            editingId = null;
+            document.getElementById('imgPreview').style.display = 'none';
+            document.getElementById('uploadPlaceholder').style.display = 'block';
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-user-plus"></i> เพิ่มเพื่อนร่วมทีม';
+            document.getElementById('submitBtn').innerText = 'บันทึกเลย 🚀';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+            document.getElementById('f_id').readOnly = false;
+        };
+
+        window.openDetail = (encodedId) => {
+            const id = decodeURIComponent(encodedId);
+            const emp = employees.find(e => (e.employeeId || e.docId) === id);
+            if(!emp) return;
+            selectedEmpId = id;
+            document.getElementById('modalBody').innerHTML = `
+                <img src="${emp.imageData || 'https://via.placeholder.com/100'}" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:15px;border:3px solid var(--accent);">
+                <h2>${emp.firstName} ${emp.lastName}</h2>
+                <p style="color:var(--accent);margin-bottom:15px;font-weight:bold;">${emp.position}</p>
+                <div style="text-align:left;background:rgba(255,255,255,.05);padding:15px;border-radius:15px;font-size:.9rem;line-height:1.6;">
+                    <div><strong>รหัส:</strong> ${emp.employeeId}</div>
+                    <div><strong>แผนก:</strong> ${emp.department}</div>
+                    <div><strong>เงินเดือน:</strong> ฿${Number(emp.salary).toLocaleString()}</div>
+                    <div><strong>โทร:</strong> ${emp.phone}</div>
+                </div>
+            `;
+            document.getElementById('detailModal').classList.add('open');
+        };
+
+        window.closeModal = () => document.getElementById('detailModal').classList.remove('open');
+
+        window.editCurrentEmp = () => {
+            const emp = employees.find(e => (e.employeeId || e.docId) === selectedEmpId);
+            if(!emp) return;
+            closeModal();
+            switchView('add', document.querySelectorAll('.nav-item')[1]);
+            
+            editingId = emp.employeeId || emp.docId;
+            document.getElementById('f_id').value = editingId;
+            document.getElementById('f_id').readOnly = true;
+            document.getElementById('f_fname').value = emp.firstName;
+            document.getElementById('f_lname').value = emp.lastName;
+            document.getElementById('f_dept').value = emp.department;
+            document.getElementById('f_pos').value = emp.position;
+            document.getElementById('f_sal').value = emp.salary;
+            document.getElementById('f_phone').value = emp.phone;
+            
+            if(emp.imageData) {
+                currentImgBase64 = emp.imageData;
+                document.getElementById('imgPreview').src = emp.imageData;
                 document.getElementById('imgPreview').style.display = 'block';
                 document.getElementById('uploadPlaceholder').style.display = 'none';
-            };
-            reader.readAsDataURL(input.files[0]);
+            }
+
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-pen-to-square"></i> แก้ไขข้อมูล';
+            document.getElementById('submitBtn').innerText = 'อัปเดตข้อมูล';
+            document.getElementById('cancelEditBtn').style.display = 'block';
+        };
+
+        window.deleteCurrentEmp = async () => {
+            if(confirm('ลบข้อมูลนี้แน่นอนนะ?')) {
+                try {
+                    await deleteDoc(doc(db, "employees", selectedEmpId));
+                    closeModal();
+                    alert('ลบเรียบร้อย 🗑️');
+                } catch(err) {
+                    alert('ลบไม่สำเร็จ: ' + err.message);
+                }
+            }
+        };
+
+        window.switchView = (viewName, navEl) => {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(`view-${viewName}`).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if(navEl) navEl.classList.add('active');
+            if(viewName !== 'add' && !editingId) resetForm();
+        };
+
+        window.setTheme = (themeName, el) => {
+            document.body.className = `theme-${themeName}`;
+            localStorage.setItem('empTheme', themeName);
+            updateThemeSelection(themeName);
+        };
+
+        function updateThemeSelection(activeTheme) {
+            document.querySelectorAll('.theme-option').forEach(el => el.classList.remove('active'));
+            const themes = ['cyber','y2k','matrix','sunset','lavender','ocean','strawberry','gold','forest','retro','bubblegum','slate','blood','coffee'];
+            const idx = themes.indexOf(activeTheme);
+            const els = document.querySelectorAll('.theme-option');
+            if(idx > -1 && els[idx]) els[idx].classList.add('active');
         }
-    };
-
-    window.resetForm = () => {
-        document.getElementById('empForm').reset();
-        currentImgBase64 = null;
-        editingId = null;
-        document.getElementById('imgPreview').style.display = 'none';
-        document.getElementById('uploadPlaceholder').style.display = 'block';
-        document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-user-plus"></i> เพิ่มเพื่อนร่วมทีม';
-        document.getElementById('submitBtn').innerText = 'บันทึกเลย 🚀';
-        document.getElementById('cancelEditBtn').style.display = 'none';
-    };
-
-    window.openDetail = (id) => {
-        const emp = employees.find(e => e.employeeId === id);
-        if(!emp) return;
-        selectedEmpId = id;
-        document.getElementById('modalBody').innerHTML = `
-            <img src="${emp.imageData || 'https://via.placeholder.com/100'}" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:15px; border:3px solid var(--accent);">
-            <h2>${emp.firstName} ${emp.lastName}</h2>
-            <p style="color:var(--accent); margin-bottom:15px; font-weight:bold;">${emp.position}</p>
-            <div style="text-align:left; background:rgba(255,255,255,0.05); padding:15px; border-radius:15px; font-size:0.9rem; line-height:1.6;">
-                <div><strong>รหัส:</strong> ${emp.employeeId}</div>
-                <div><strong>แผนก:</strong> ${emp.department}</div>
-                <div><strong>เงินเดือน:</strong> ฿${Number(emp.salary).toLocaleString()}</div>
-                <div><strong>โทร:</strong> ${emp.phone}</div>
-            </div>
-        `;
-        document.getElementById('detailModal').classList.add('open');
-    };
-
-    window.closeModal = () => document.getElementById('detailModal').classList.remove('open');
-
-    window.editCurrentEmp = () => {
-        const emp = employees.find(e => e.employeeId === selectedEmpId);
-        if(!emp) return;
-        closeModal();
-        switchView('add', document.querySelectorAll('.nav-item')[1]);
-        
-        editingId = emp.employeeId;
-        document.getElementById('f_id').value = emp.employeeId;
-        document.getElementById('f_id').readOnly = true;
-        document.getElementById('f_fname').value = emp.firstName;
-        document.getElementById('f_lname').value = emp.lastName;
-        document.getElementById('f_dept').value = emp.department;
-        document.getElementById('f_pos').value = emp.position;
-        document.getElementById('f_sal').value = emp.salary;
-        document.getElementById('f_phone').value = emp.phone;
-        
-        if(emp.imageData) {
-            currentImgBase64 = emp.imageData;
-            document.getElementById('imgPreview').src = emp.imageData;
-            document.getElementById('imgPreview').style.display = 'block';
-            document.getElementById('uploadPlaceholder').style.display = 'none';
-        }
-
-        document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-pen-to-square"></i> แก้ไขข้อมูล';
-        document.getElementById('submitBtn').innerText = 'อัปเดตข้อมูล';
-        document.getElementById('cancelEditBtn').style.display = 'block';
-    };
-
-    window.deleteCurrentEmp = async () => {
-        if(confirm('ลบข้อมูลนี้แน่นอนนะ?')) {
-            await deleteDoc(doc(db, "employees", selectedEmpId));
-            closeModal();
-            alert('ลบเรียบร้อย 🗑️');
-        }
-    };
-
-    window.switchView = (viewName, navEl) => {
-        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-        document.getElementById(`view-${viewName}`).classList.add('active');
-        
-        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-        if(navEl) navEl.classList.add('active');
-        
-        if(viewName !== 'add' && !editingId) resetForm();
-        if(viewName === 'add' && !editingId) document.getElementById('f_id').readOnly = false;
-    };
-
-    window.setTheme = (themeName, el) => {
-        document.body.className = `theme-${themeName}`;
-        localStorage.setItem('empTheme', themeName);
-        updateThemeSelection(themeName);
-    };
-
-    function updateThemeSelection(activeTheme) {
-        document.querySelectorAll('.theme-option').forEach(el => el.classList.remove('active'));
-        const els = document.querySelectorAll('.theme-option');
-        const themes = ['cyber','y2k','matrix','sunset','lavender','ocean','strawberry','gold','forest','retro','bubblegum','slate','blood','coffee'];
-        const idx = themes.indexOf(activeTheme);
-        if(idx > -1 && els[idx]) els[idx].classList.add('active');
+    } catch(err) {
+        console.error("Firebase Init Failed:", err);
+        alert("ไม่สามารถเชื่อมต่อ Firebase ได้ กรุณาตรวจสอบ Internet หรือ Config");
     }
 </script>
 </body>
